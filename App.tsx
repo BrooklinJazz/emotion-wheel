@@ -12,7 +12,7 @@ const Container = styled.View`
 export default function App() {
   return (
     <Container>
-      <Text>Emotion Wheel</Text>
+      <Text data-test-id="work">Emotion Wheel</Text>
     </Container>
   );
 }
