@@ -88,6 +88,11 @@ for documentation go to https://styled-components.com/docs/basics#react-native.
 - Recommended to know Enums, Interfaces, Types.
 - If a specific type is giving you trouble temporarily using `any` or // @ts-ignore next-line will allow you to ignore ts issues. This should not be overused and ideally removed whenever possible. However when you need a hammer it can be a great tool to let you `temporarily` ignore typescript problems
 
+## xstate
+- see https://github.com/davidkpiano/xstate for documentation on xstate
+- see https://github.com/davidkpiano/xstate/tree/master/packages/xstate-react for docs on xstate with react hooks
+- Visualization of our state machine (WIP) https://xstate.js.org/viz/?gist=14bee9d8de6c10a5c48e0c9e1d3ec461
+
 ## Clubhouse
 Clubhouse is a kanbam style project management tool
 
