@@ -1,9 +1,5 @@
 # Motivation
-EmotionWheel is designed to help people identify their emotions.
-
-It is inspired by the feelings wheel created by [Geoffrey Roberts](https://imgur.com/tCWChf6) (permission pending)
-
-![Feelings Wheel](https://i.imgur.com/tCWChf6.jpg)
+EmotionWheel aims to help people increase their emotional intelligence by guiding them through the process of identifying their feelings.
 
 # Research
 - Brene Brown
