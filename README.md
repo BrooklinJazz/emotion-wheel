@@ -55,6 +55,7 @@ from here you should see a cypress dialogue. you can select which test you would
 - place tests inside the /integration/ folder
 - use commands or helper methods for actions that you often repeat.
 - use data-test-id instead of classes or other alternative selectors for getting elements. see example.spec.js
+- baseUrl and viewport sizes have been configured. use `cy.visit("")` to navigate to the App in a test.
 ## Expo
 see https://docs.expo.io/versions/v36.0.0/tutorial/planning/ for documentation.
 
