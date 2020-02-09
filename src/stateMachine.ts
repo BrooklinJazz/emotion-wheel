@@ -1,8 +1,8 @@
 import { Machine, interpret } from "xstate";
-// TODO add fully fleshed states. 
+// TODO add fully fleshed states.
 // this fill is currently and example of:
 //  Bad -> Busy/Bored -> Indifferent/Apathetic or Pressured/Rushed
-
+// see example: https://xstate.js.org/viz/?gist=14bee9d8de6c10a5c48e0c9e1d3ec461 try to keep visualization up to date
 export const initialActions = {
   bad: "bad",
   fearful: "fearful",
@@ -20,7 +20,7 @@ const boredStateMachine = {
     indifferent: {},
     apathetic: {}
   }
-}
+};
 const busyStateMachine = {
   initial: "init",
   states: {
@@ -28,7 +28,7 @@ const busyStateMachine = {
     pressured: {},
     rushed: {}
   }
-}
+};
 
 const badStateMachine = {
   on: { cancel: "init" },
