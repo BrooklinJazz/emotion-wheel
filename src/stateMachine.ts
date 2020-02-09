@@ -1,4 +1,7 @@
 import { Machine, interpret } from "xstate";
+// TODO add fully fleshed states. 
+// this fill is currently and example of:
+//  Bad -> Busy/Bored -> Indifferent/Apathetic or Pressured/Rushed
 
 export const initialActions = {
   bad: "bad",
