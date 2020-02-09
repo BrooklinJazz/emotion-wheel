@@ -10,18 +10,30 @@ export const initialActions = {
   surprised: "surprised"
 };
 
+const boredStateMachine = {
+  initial: "init",
+  states: {
+    init: { on: { indifferent: "indifferent", apathetic: "apathetic" } },
+    indifferent: {},
+    apathetic: {}
+  }
+}
+const busyStateMachine = {
+  initial: "init",
+  states: {
+    init: { on: { pressured: "pressured", rushed: "rushed" } },
+    pressured: {},
+    rushed: {}
+  }
+}
+
 const badStateMachine = {
   on: { cancel: "init" },
-  initial: "bad",
+  initial: "init",
   states: {
-    bad: { on: { bored: "bored" } },
-    bored: {
-      initial: "bored",
-      states: {
-        bored: { on: { indifferent: "indifferent" } },
-        indifferent: {}
-      }
-    }
+    init: { on: { bored: "bored" } },
+    bored: boredStateMachine,
+    busy: busyStateMachine
   }
 };
 
@@ -29,22 +41,13 @@ export const emotionStateMachine = Machine({
   id: "Emotion Wheel",
   initial: "init",
   states: {
-    init: { on: { start: "start" } },
-    start: {
-      on: { cancel: "init" },
-      initial: "init",
-      states: {
-        init: {
-          on: initialActions
-        },
-        bad: badStateMachine,
-        fearful: {},
-        angry: {},
-        disgusted: {},
-        sad: {},
-        happy: {},
-        surprised: {}
-      }
-    }
+    init: { on: initialActions },
+    bad: badStateMachine,
+    fearful: {},
+    angry: {},
+    disgusted: {},
+    sad: {},
+    happy: {},
+    surprised: {}
   }
 });
