@@ -1,3 +1,10 @@
+# Motivation
+EmotionWheel is designed to help people identify their emotions.
+
+It is inspired by the feelings wheel created by [Geoffrey Roberts](https://imgur.com/tCWChf6) (permission pending)
+
+![Feelings Wheel](https://i.imgur.com/tCWChf6.jpg)
+
 # Getting Started
 - clone the project
 - install dependencies
@@ -24,7 +31,13 @@ you should see Metro Bundler open on http://localhost:19002/. go directly to htt
 
 open the expo app on your device or simulator. scan the QR code provided in Metro Bundler.
 
-# Tech Stack
+# Technology
+- Cypress
+- Expo
+- React Native
+- Styled Components
+- Clubhouse
+- Figma
 ## Cypress
 Cypress is an E2E testing framework that allows you to test your native application using expo web.
 see https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file for documentation.
@@ -69,24 +82,27 @@ for documentation go to https://styled-components.com/docs/basics#react-native.
 - Adapting Based on Props: https://styled-components.com/docs/basics#adapting-based-on-props
 - Extending Styles: https://styled-components.com/docs/basics#extending-styles
 
-### Recommended VSC Extensions
-- vscode-styled-components by Julien Poissonnier for styled components syntax highlighting and intellisense.
-- TSLint by Microsoft
-- Prettier by Esben Petersen
-
-### Nice to have VSC Extensions
-- Color Highlight by Sergii Naumov
-- Rainbow Brackets by 2gua
-- TypeScript Import Sorter by Michael
-- Auto Rename Tag by Jun Han
-- Auto Close Tag by Jun Han
-
 ## Typescript
 - for documentation see https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
 - Recommended to know Enums, Interfaces, Types.
 - If a specific type is giving you trouble temporarily using `any` or // @ts-ignore next-line will allow you to ignore ts issues. This should not be overused and ideally removed whenever possible. However when you need a hammer it can be a great tool to let you `temporarily` ignore typescript problems
 
 ## Clubhouse
+Clubhouse is a kanbam style project management tool
+
 - https://app.clubhouse.io/kealybrook/stories/space/9/everything
 
 ## Figma (WIP)
+- view the mocks at: https://www.figma.com/file/VycKPBEzAe5Mbwa1fT3F7c/EmotionWheel?node-id=0%3A1
+- to edit the mocks you need an invite to be sent to you
+- Figma Project: https://www.figma.com/file/VycKPBEzAe5Mbwa1fT3F7c/EmotionWheel?node-id=0%3A1
+
+## Recommended VSC Extensions
+- vscode-styled-components by Julien Poissonnier for styled components syntax highlighting and intellisense.
+- TSLint by Microsoft
+- Prettier by Esben Petersen
+- Color Highlight by Sergii Naumov
+- Rainbow Brackets by 2gua
+- TypeScript Import Sorter by Michael
+- Auto Rename Tag by Jun Han
+- Auto Close Tag by Jun Han
