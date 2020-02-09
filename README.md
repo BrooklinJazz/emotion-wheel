@@ -5,6 +5,13 @@ It is inspired by the feelings wheel created by [Geoffrey Roberts](https://imgur
 
 ![Feelings Wheel](https://i.imgur.com/tCWChf6.jpg)
 
+# Research
+- Brene Brown
+- Tara Brach
+- Ashlynn & Coby Mitchell: https://www.youtube.com/watch?v=pnq07CAbMsY
+- feelingswheel.com
+- https://positivepsychology.com/emotion-wheel/
+
 # Getting Started
 - clone the project
 - install dependencies
@@ -36,8 +43,11 @@ open the expo app on your device or simulator. scan the QR code provided in Metr
 - Expo
 - React Native
 - Styled Components
+- Typescript
+- xstate
 - Clubhouse
 - Figma
+
 ## Cypress
 Cypress is an E2E testing framework that allows you to test your native application using expo web.
 see https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file for documentation.
