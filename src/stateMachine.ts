@@ -4,7 +4,7 @@ import { Machine, interpret } from "xstate";
 //  Bad -> Busy/Bored -> Indifferent/Apathetic or Pressured/Rushed
 // see example: https://xstate.js.org/viz/?gist=14bee9d8de6c10a5c48e0c9e1d3ec461 try to keep visualization up to date
 
-export const initialActions = {
+const initialActions = {
   anger: "anger",
   fear: "fear",
   joy: "joy",
@@ -13,25 +13,91 @@ export const initialActions = {
   surprise: "surprise"
 };
 
-const boredStateMachine = {
-  initial: "init",
-  states: {
-    init: { on: { indifferent: "indifferent", apathetic: "apathetic" } },
-    indifferent: {},
-    apathetic: {}
-  }
-};
+const angerActions = {
+  let_down: "let_down",
+  humiliated: "humiliated",
+  bitter: "bitter",
+  mad: "mad",
+  aggressive: "aggressive",
+  frustrated: "frustrated",
+  distant: "distant",
+  critical: "critical"
+}
 
-export const emotionStateMachine = Machine({
+const letDownActions = {
+  betrayed: "betrayed",
+  resentful: "resentful",
+}
+
+const humiliatedActions = {
+  disrespected: "disrespected",
+  ridiculed: "ridiculed",
+}
+
+const bitterActions = {
+  indignant: "indignant",
+  violated: "violated",
+}
+
+const madActions = {
+  furious: "furious",
+  jealous: "jealous",
+}
+
+const aggressiveActions = {
+  provoked: "provoked",
+  hostile: "hostile",
+}
+
+const frustratedActions = {
+  infuriated: "infuriated",
+  annoyed: "annoyed",
+}
+
+const distantActions = {
+  withdrawn: "withdrawn",
+  numb: "numb",
+}
+
+const criticalActions = {
+  skeptical: "skeptical",
+  dismissive: "dismissive",
+}
+
+const emotionStateMachine = Machine({
   id: "Emotion Wheel",
   initial: "init",
   states: {
     init: { on: initialActions },
-    anger: {},
+    anger: { on: angerActions },
     fear: {},
     joy: {},
     disgust: {},
     sad: {},
-    surprise: {}
+    surprise: {},
+    let_down: { on: letDownActions },
+    humiliated: { on: humiliatedActions },
+    bitter: { on: bitterActions },
+    mad: { on: madActions },
+    aggressive: { on: aggressiveActions },
+    frustrated: { on: frustratedActions },
+    distant: { on: distantActions },
+    critical: { on: criticalActions },
+    betrayed: {},
+    resentful: {},
+    disrespected: {},
+    ridiculed: {},
+    indignant: {},
+    violated: {},
+    furious: {},
+    jealous: {},
+    provoked: {},
+    hostile: {},
+    infuriated: {},
+    annoyed: {},
+    withdrawn: {},
+    numb: {},
+    skeptical: {},
+    dismissive: {},
   }
 });
