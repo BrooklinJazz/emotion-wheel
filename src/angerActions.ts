@@ -1,4 +1,4 @@
-import { objectFromArray, objFromAction } from "./stateMachine";
+import { objectFromArray, objectFromAction } from "./stateMachine";
 
 const angerActions = objectFromArray([
   "let_down",
@@ -10,7 +10,9 @@ const angerActions = objectFromArray([
   "distant",
   "critical"
 ]);
+
 const letDownActions = objectFromArray(["betrayed", "resentful"]);
+
 const humiliatedActions = {
   disrespected: "disrespected",
   ridiculed: "ridiculed"
@@ -39,7 +41,7 @@ const criticalActions = {
   skeptical: "skeptical",
   dismissive: "dismissive"
 };
-export const allAngerActions = objFromAction([
+export const allAngerActions = objectFromAction([
   ["anger", angerActions],
   ["let_down", letDownActions],
   ["humiliated", humiliatedActions],

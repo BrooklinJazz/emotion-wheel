@@ -1,5 +1,7 @@
 import { Machine, interpret } from "xstate";
 import { allAngerActions } from "./angerActions";
+import { allDisgustActions } from "./disgustActions";
+
 // TODO add fully fleshed states.
 // this fill is currently and example of:
 //  Bad -> Busy/Bored -> Indifferent/Apathetic or Pressured/Rushed
@@ -13,7 +15,7 @@ arr.reduce((total, each) => {
   };
 }, {});
 
-export const objFromAction = arr =>
+export const objectFromAction = arr =>
   arr.reduce(
     (total, each) => ({
       ...total,
@@ -22,7 +24,7 @@ export const objFromAction = arr =>
     {}
   );
 
-const initialActions = objectFromArray([
+export const initialActions = objectFromArray([
   "anger",
   "fear",
   "joy",
@@ -31,7 +33,7 @@ const initialActions = objectFromArray([
   "surprise"
 ]);
 
-const emotionStateMachine = Machine({
+export const emotionStateMachine = Machine({
   id: "Emotion Wheel",
   initial: "init",
   states: {
@@ -42,5 +44,6 @@ const emotionStateMachine = Machine({
     sad: {},
     surprise: {},
     ...allAngerActions,
+    ...allDisgustActions
   }
 });
