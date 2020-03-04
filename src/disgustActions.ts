@@ -1,4 +1,5 @@
-import { objectFromArray, objectFromAction } from "./stateMachine";
+import { objectFromArray } from "./objectFromArray";
+import { objectFromAction } from "./objectFromAction";
 
 const disgustActions = objectFromArray([
   "disapproving",

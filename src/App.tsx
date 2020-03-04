@@ -12,7 +12,6 @@ import { Container } from "./Background";
 
 export default function App() {
   const [current, send] = useMachine(emotionStateMachine);
-  const [state, setState] = useState("");
   return (
     <Container>
       <Text data-test-id="work">Emotion Wheel</Text>
