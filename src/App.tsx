@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   TextInput
 } from "react-native";
-import { emotionStateMachine, initialActions } from "./stateMachine";
+import { emotionStateMachine, initialActions } from "./xstate/stateMachine";
 import { useMachine } from "@xstate/react";
 import { Container } from "./Background";
 
