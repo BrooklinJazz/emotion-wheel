@@ -13,17 +13,16 @@ export const initialActions = objectFromArray([
 ]);
 
 export const emotionStateMachine = Machine({
-  id: "Emotion Wheel",
-  initial: "init",
+  id: 'emotionMachine',
+  initial: 'init',
   states: {
-    init: { on: initialActions },
+    init: { on: { START: 'selecting' }},
+    selecting: { on: { ANGER: 'anger' }},
+    anger: {},
     fear: {},
     joy: {},
     disgust: {},
     sad: {},
-    surprise: {},
-    anger: {},
-    ...allAngerActions,
-    ...allDisgustActions
+    surprise: {}
   }
-});
+})
