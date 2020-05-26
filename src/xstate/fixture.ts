@@ -1,33 +1,15 @@
 import { emotionStateMachine } from "./stateMachine";
 import { interpret, Interpreter, AnyEventObject } from "xstate";
 
-export class Fixture {
+class BaseFixture {
   private fnArray: Array<Function>;
-  private machine: Interpreter<any, any, AnyEventObject, any>;
-  constructor(
-    public done: jest.DoneCallback,
-    init: string = "init",
-    machine = emotionStateMachine
-  ) {
-    this.machine = interpret(machine).start(init);
+  constructor(public done: jest.DoneCallback,) {
     this.fnArray = [];
   }
 
-  get state() {
-    return this.machine.state.value;
-  }
-
-  private add(fn) {
+  public add(fn) {
     this.fnArray.push(fn);
     return this;
-  }
-
-  public send(event: string) {
-    return this.add(() => this.sendImpl(event));
-  }
-
-  private sendImpl(event: string) {
-    return this.machine.send(event);
   }
 
   public exec() {
@@ -37,6 +19,30 @@ export class Fixture {
 
   public assert(fn) {
     return this.add(fn);
+  }
+}
+
+export class Fixture extends BaseFixture {
+  private machine: Interpreter<any, any, AnyEventObject, any>;
+  constructor(
+    done: jest.DoneCallback,
+    init: string = "init",
+    machine = emotionStateMachine
+  ) {
+    super(done)
+    this.machine = interpret(machine).start(init);
+  }
+
+  get state() {
+    return this.machine.state.value;
+  }
+
+  public send(event: string) {
+    return this.add(() => this.sendImpl(event));
+  }
+
+  private sendImpl(event: string) {
+    return this.machine.send(event);
   }
 
   public expectIsState(state: string) {

@@ -13,6 +13,8 @@ import {
 } from "./actions";
 import { Fixture } from "./fixture";
 
+
+
 describe("stateMachine _ transitions", () => {
   it("init _ START", done => {
     const fixture = new Fixture(done);
