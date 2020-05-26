@@ -19,3 +19,10 @@ export const EmoState = {
   Basic,
   ...Basic
 };
+
+export const EmoActions = {
+  Initial,
+  ...Initial,
+  Basic,
+  ...Basic
+};

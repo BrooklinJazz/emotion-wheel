@@ -1,11 +1,7 @@
 import { emotionStateMachine } from "./stateMachine";
 import { StateMachine, interpret } from "xstate";
-import { EmoState, EmoStateType } from "./states";
+import { EmoState } from "./states";
 
-enum Event {
-  START = "START",
-  SELECTING = "SELECTING"
-}
 class Fixture {
   private fnArray: Array<Function>;
   constructor(
@@ -29,7 +25,7 @@ class Fixture {
   }
 
   public exec() {
-    const fn = this.fnArray.shift()(); // remove and call first fn
+    this.fnArray.shift()(); // remove and call first fn
     return this.fnArray.length === 0 ? this.done() : this.exec();
   }
 
@@ -45,8 +41,15 @@ class Fixture {
 }
 
 describe("stateMachine _ transitions", () => {
-  beforeEach(() => {});
-  it("test", done => {
+  it("init _ START _ selecting", done => {
+    const fixture = new Fixture(done);
+    fixture
+      .send(Event.START)
+      .expectIsState(EmoState.selecting)
+      .exec();
+  });
+
+  it("init _ START _ selecting", done => {
     const fixture = new Fixture(done);
     fixture
       .send(Event.START)
