@@ -2,7 +2,8 @@
  * Basic
  */
 
-const Basic = {
+export const BasicActions = {
+  ANGER: "anger",
   FEAR: "fear",
   JOY: "joy",
   DISGUST: "disgust",
@@ -14,7 +15,7 @@ const Basic = {
  * Anger
  */
 
-const Anger = {
+export const Anger = {
   LET_DOWN: "let_down",
   HUMILIATED: "humiliated",
   BITTER: "bitter",
@@ -24,36 +25,37 @@ const Anger = {
   DISTANT: "distant",
   CRITICAL: "critical"
 };
-const Mad = {
+
+export const Mad = {
   FURIOUS: "furious",
   JEALOUS: "furious"
 };
-const Aggressive = {
+export const Aggressive = {
   PROVOKED: "provoked",
   HOSTILE: "hostile"
 };
 
-const Frustrated = {
+export const Frustrated = {
   INFURIATED: "infuriated",
   ANNOYED: "annoyed"
 };
 
-const Distant = {
+export const Distant = {
   WITHDRAWN: "withdrawn",
   NUMB: "numb"
 };
 
-const Critical = {
+export const Critical = {
   SKEPTICAL: "skeptical",
   DISMISSIVE: "dismissive"
 };
 
-const Humiliated = {
+export const Humiliated = {
   DISRESPECTED: "distrespected",
   RIDECULED: "redeculed"
 };
 
-const Bitter = {
+export const Bitter = {
   INDIGNANT: "indignant",
   VIOLATED: "violated"
 };
@@ -62,29 +64,29 @@ const Bitter = {
  * Disgust Actions
  */
 
-const Disgust = {
+export const Disgust = {
   DISAPPROVING: "disapproving",
   DISAPPOINTED: "disappointed",
   AWFUL: "awful",
   REPELLED: "repelled"
 };
 
-const Disapproving = {
+export const Disapproving = {
   JUDGEMENTAL: "judgemental",
   EMBARASSED: "embarassed"
 };
 
-const Disappointed = {
+export const Disappointed = {
   APPALLED: "appalled",
   REVOLTED: "revolted"
 };
 
-const Awful = {
+export const Awful = {
   NAUSEATED: "nauseated",
   DETESTABLE: "detestable"
 };
 
-const Repelled = {
+export const Repelled = {
   HORRIFIED: "horrified",
   HESITANT: "hesitant"
 };
@@ -93,30 +95,33 @@ const Repelled = {
  * EmoActions
  */
 
-export const EmoActions = {
-  START: "selecting",
-
-  Basic,
-  Anger: {
-    ...Anger,
-    Humiliated,
-    Bitter,
-    Mad,
-    Aggressive,
-    Frustrated,
-    Distant,
-    Critical
-  },
-  Disgust: {
-    ...Disgust,
-    Disapproving,
-    Disappointed,
-    Awful,
-    Repelled
-  }
+const AngerActions = {
+  ...Anger,
+  ...Humiliated,
+  ...Bitter,
+  ...Mad,
+  ...Aggressive,
+  ...Frustrated,
+  ...Distant,
+  ...Critical
 };
 
-export const EmoStates = { 
-    ...EmoActions,
-    SELECTING: "selecting"
- };
+const DisgustActions = {
+  ...Disgust,
+  ...Disapproving,
+  ...Disappointed,
+  ...Awful,
+  ...Repelled
+};
+
+export const EmoActions = {
+  START: "selecting",
+  ...BasicActions,
+  ...AngerActions,
+  ...DisgustActions
+};
+
+export const EmoStates = {
+  ...EmoActions,
+  SELECTING: "selecting"
+};
