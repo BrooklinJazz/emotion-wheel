@@ -9,12 +9,39 @@ const angerEmotions = [
   "Critical"
 ];
 
-const baseEmotions = ["Disgust", "Fear", "Joy", "Surprise", "Anger", "Sadness"];
 import { Fixture } from "../fixtures/fixture";
+import { Ids, BaseButtons } from "../fixtures/testIds";
+import { TouchableHighlightBase } from "react-native";
 
 class CypressFixture extends Fixture {
   constructor(done) {
     super(done);
+  }
+
+  visit(route = "") {
+    return this.add(() => cy.visit(route));
+  }
+  _get(id) {
+    return cy.get(`[data-test-id='${id}']`);
+  }
+
+  click(id) {
+    return this.add(() => this.addImpl(id))
+  }
+
+  clickImpl(id) {
+    return this._get(id).click()
+  }
+
+  isVisible(id) {
+    if (typeof id === "string") {
+      return this.add(() => this.isVisibleImpl(id));
+    }
+    return this.addMany(id.map(each => this.isVisibleImpl(each)))
+  }
+
+  isVisibleImpl(id) {
+    return this._get(id).should("be.visible");
   }
 }
 
@@ -22,18 +49,17 @@ describe("Landing Page", function() {
   it("has a start button", function(done) {
     const fixture = new CypressFixture(done);
     fixture
-      .add(() => cy.visit(""))
-      .add(() => cy.get("[data-test-id='startBtn']").should("be.visible"))
-      .exec()
+      .visit()
+      .isVisible(Ids.StartButton)
+      .exec();
   });
 
-  xit("has base emotions", function() {
-    cy.visit("");
-    cy.get("[data-test-id='startBtn']").click();
-    cy.get("[data-test-id='startBtn']").should("not.exist");
 
-    baseEmotions.forEach(emotion => {
-      cy.get(`[data-test-id=${emotion.toLowerCase()}]`).should("be.visible");
-    });
+  it("has base emotions", function(done) {
+    const fixture = new CypressFixture(done)
+    fixture.visit()
+    .click(Ids.StartButton)
+    .isVisible(BaseButtons)
+    .exec()
   });
 });

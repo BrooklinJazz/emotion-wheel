@@ -9,6 +9,12 @@ export class Fixture {
     return this;
   }
 
+  addMany(fns) {
+    fns.forEach(fn => this.fnArray.push(fn));
+    return this;
+  }
+
+
   exec() {
     return this.fnArray
       .shift()() // remove and call first fn
