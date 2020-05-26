@@ -1,6 +1,6 @@
 import { emotionStateMachine } from "./stateMachine";
-import { StateMachine, interpret } from "xstate";
-import { EmoState } from "./states";
+import { interpret } from "xstate";
+import { EmoActions, EmoStates } from "./actions";
 
 class Fixture {
   private fnArray: Array<Function>;
@@ -20,7 +20,7 @@ class Fixture {
     return this;
   }
 
-  public send(event: Event) {
+  public send(event: string) {
     return this.add(() => this.machine.send(event));
   }
 
@@ -35,7 +35,7 @@ class Fixture {
 
   public expectIsState(state: string) {
     return this.assert(() => {
-        expect(this.state).toBe(state)
+      expect(this.state).toBe(state);
     });
   }
 }
@@ -44,16 +44,8 @@ describe("stateMachine _ transitions", () => {
   it("init _ START _ selecting", done => {
     const fixture = new Fixture(done);
     fixture
-      .send(Event.START)
-      .expectIsState(EmoState.selecting)
-      .exec();
-  });
-
-  it("init _ START _ selecting", done => {
-    const fixture = new Fixture(done);
-    fixture
-      .send(Event.START)
-      .expectIsState(EmoState.selecting)
+      .send(EmoActions.START)
+      .expectIsState(EmoStates.SELECTING)
       .exec();
   });
 });
