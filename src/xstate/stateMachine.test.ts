@@ -36,7 +36,7 @@ describe("stateMachine _ transitions", () => {
     { init: EmoStates.ANGER, actions: Anger },
     { init: EmoStates.HUMILIATED, actions: Humiliated },
     { init: EmoStates.BITTER, actions: Bitter },
-    { init: EmoStates.ANGER, actions: Mad },
+    { init: EmoStates.MAD, actions: Mad },
     { init: EmoStates.AGGRESSIVE, actions: Aggressive },
     { init: EmoStates.FRUSTRATED, actions: Frustrated },
     { init: EmoStates.DISTANT, actions: Distant },

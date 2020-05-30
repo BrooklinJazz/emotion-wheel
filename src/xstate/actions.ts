@@ -51,8 +51,8 @@ export const Critical = {
 };
 
 export const Humiliated = {
-  DISRESPECTED: "distrespected",
-  RIDECULED: "redeculed"
+  DISRESPECTED: "disrespected",
+  RIDICULED: "ridiculed"
 };
 
 export const Bitter = {

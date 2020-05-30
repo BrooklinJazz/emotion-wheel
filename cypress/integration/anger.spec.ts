@@ -1,5 +1,5 @@
 import { Fixture } from "../fixtures/fixture";
-import { Ids, BaseButtons } from "../fixtures/testIds";
+import { Ids, BasicButtons, AngerButtons, Basic } from "../fixtures/testIds";
 import { CypressFixture } from "../fixtures/cypressFixture";
 
 // TODO fix types for cy.
@@ -13,11 +13,20 @@ describe("Landing Page", function() {
       .exec();
   });
 
-  xit("has base emotions", function(done) {
+  it("has base emotions", function(done) {
     const fixture = new CypressFixture(done, cy)
     fixture.visit()
     .click(Ids.StartButton)
-    .isVisible(BaseButtons)
+    .isVisible(Basic.ANGER)
     .exec()
   });
+
+  it("click on anger _ see anger emotions", (done) => {
+    const fixture = new CypressFixture(done, cy)
+
+    fixture.visit()
+      .click(Ids.StartButton)
+      .click(Basic.ANGER)
+      .isVisible(AngerButtons)
+  })
 });
