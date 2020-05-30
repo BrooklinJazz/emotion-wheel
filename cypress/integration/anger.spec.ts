@@ -23,7 +23,6 @@ describe("Landing Page", function() {
 
   it("click on anger _ see anger emotions", (done) => {
     const fixture = new CypressFixture(done, cy)
-
     fixture.visit()
       .click(Ids.StartButton)
       .click(Basic.ANGER)
