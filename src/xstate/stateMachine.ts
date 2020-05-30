@@ -30,7 +30,14 @@ export const emotionStateMachine = Machine({
     },
     fear: {},
     joy: {},
-    disgust: {},
+    disgust: {
+      on: {
+        disapproving: "disapproving",
+        disappointed: "disappointed",
+        awful: "awful",
+        repelled: "repelled"
+      }
+    },
     sad: {},
     surprise: {},
     let_down: {},
@@ -87,6 +94,10 @@ export const emotionStateMachine = Machine({
     withdrawn: {},
     numb: {},
     skeptical: {},
-    dismissive: {}
+    dismissive: {},
+    disapproving: {},
+    disappointed: {},
+    awful: {},
+    repelled: {}
   }
 });
