@@ -1,103 +1,103 @@
 import { Machine } from "xstate";
-import { EmoActions } from "./actions";
+import { EmoActions, EmoStates } from "./actions";
 
 export const emotionStateMachine = Machine({
   id: "emotionMachine",
-  initial: "init",
+  initial: EmoStates.INIT,
   states: {
-    init: { on: { [EmoActions.START]: "selecting" } },
-    selecting: {
+    init: { on: { [EmoActions.START]: EmoStates.SELECTING } },
+    [EmoStates.SELECTING]: {
       on: {
-        [EmoActions.ANGER]: "anger",
-        [EmoActions.FEAR]: "fear",
-        [EmoActions.JOY]: "joy",
-        [EmoActions.DISGUST]: "disgust",
-        [EmoActions.SAD]: "sad",
-        [EmoActions.SURPRISE]: "surprise"
+        [EmoActions.ANGER]: EmoStates.ANGER,
+        [EmoActions.FEAR]: EmoStates.FEAR,
+        [EmoActions.JOY]: EmoStates.JOY,
+        [EmoActions.DISGUST]: EmoStates.DISGUST,
+        [EmoActions.SAD]: EmoStates.SAD,
+        [EmoActions.SURPRISE]: EmoStates.SURPRISE
       }
     },
-    anger: {
+    [EmoStates.ANGER]: {
       on: {
-        let_down: "let_down",
-        humiliated: "humiliated",
-        bitter: "bitter",
-        mad: "mad",
-        aggressive: "aggressive",
-        frustrated: "frustrated",
-        distant: "distant",
-        critical: "critical"
+        [EmoActions.LET_DOWN]: EmoStates.LET_DOWN,
+        [EmoActions.HUMILIATED]: EmoStates.HUMILIATED,
+        [EmoActions.BITTER]: EmoStates.BITTER,
+        [EmoActions.MAD]: EmoStates.MAD,
+        [EmoActions.AGGRESSIVE]: EmoStates.AGGRESSIVE,
+        [EmoActions.FRUSTRATED]: EmoStates.FRUSTRATED,
+        [EmoActions.DISTANT]: EmoStates.DISTANT,
+        [EmoActions.CRITICAL]: EmoStates.CRITICAL
       }
     },
-    fear: {},
-    joy: {},
-    disgust: {
+    [EmoStates.FEAR]: {},
+    [EmoStates.JOY]: {},
+    [EmoStates.DISGUST]: {
       on: {
-        disapproving: "disapproving",
-        disappointed: "disappointed",
-        awful: "awful",
-        repelled: "repelled"
+        [EmoActions.DISAPPROVING]: EmoStates.DISAPPROVING,
+        [EmoActions.DISAPPOINTED]: EmoStates.DISAPPOINTED,
+        [EmoActions.AWFUL]: EmoStates.AWFUL,
+        [EmoActions.REPELLED]: EmoStates.REPELLED
       }
     },
-    sad: {},
-    surprise: {},
-    let_down: {},
-    humiliated: {
+    [EmoStates.SAD]: {},
+    [EmoStates.SURPRISE]: {},
+    [EmoStates.LET_DOWN]: {},
+    [EmoStates.HUMILIATED]: {
       on: {
-        disrespected: "disrespected",
-        ridiculed: "ridiculed"
+        [EmoActions.DISRESPECTED]: EmoStates.DISRESPECTED,
+        [EmoActions.RIDICULED]: EmoStates.RIDICULED
       }
     },
-    bitter: {
+    [EmoStates.BITTER]: {
       on: {
-        indignant: "indignant",
-        violated: "violated"
+        [EmoActions.INDIGNANT]: EmoStates.INDIGNANT,
+        [EmoActions.VIOLATED]: EmoStates.VIOLATED
       }
     },
-    mad: {
+    [EmoStates.MAD]: {
       on: {
-        furious: "furious"
+        [EmoActions.FURIOUS]: EmoStates.FURIOUS
       }
     },
-    aggressive: {
+    [EmoStates.AGGRESSIVE]: {
       on: {
-        provoked: "provoked",
-        hostile: "hostile"
+        [EmoActions.PROVOKED]: EmoStates.PROVOKED,
+        [EmoActions.HOSTILE]: EmoStates.HOSTILE
       }
     },
-    frustrated: {
+    [EmoStates.FRUSTRATED]: {
       on: {
-        infuriated: "infuriated",
-        annoyed: "annoyed"
+        [EmoActions.INFURIATED]: EmoStates.INFURIATED,
+        [EmoActions.ANNOYED]: EmoStates.ANNOYED
       }
     },
-    distant: {
+    [EmoStates.DISTANT]: {
       on: {
-        withdrawn: "withdrawn",
-        numb: "numb"
+        [EmoActions.WITHDRAWN]: EmoStates.WITHDRAWN,
+        [EmoActions.NUMB]: EmoStates.NUMB
       }
     },
-    critical: {
+    [EmoStates.CRITICAL]: {
       on: {
-        skeptical: "skeptical",
-        dismissive: "dismissive"
+        [EmoActions.SKEPTICAL]: EmoStates.SKEPTICAL,
+        [EmoActions.DISMISSIVE]: EmoStates.DISMISSIVE
       }
     },
-    disrespected: {},
-    ridiculed: {},
-    indignant: {},
-    violated: {},
-    furious: {},
-    provoked: {},
-    hostile: {},
-    infuriated: {},
-    annoyed: {},
-    withdrawn: {},
-    numb: {},
-    skeptical: {},
-    dismissive: {},
-    disapproving: {},
-    disappointed: {},
-    awful: {},
-    repelled: {}
+    [EmoStates.DISRESPECTED]: {},
+    [EmoStates.RIDICULED]: {},
+    [EmoStates.INDIGNANT]: {},
+    [EmoStates.VIOLATED]: {},
+    [EmoStates.FURIOUS]: {},
+    [EmoStates.PROVOKED]: {},
+    [EmoStates.HOSTILE]: {},
+    [EmoStates.INFURIATED]: {},
+    [EmoStates.ANNOYED]: {},
+    [EmoStates.WITHDRAWN]: {},
+    [EmoStates.NUMB]: {},
+    [EmoStates.SKEPTICAL]: {},
+    [EmoStates.DISMISSIVE]: {},
+    [EmoStates.DISAPPROVING]: {},
+    [EmoStates.DISAPPOINTED]: {},
+    [EmoStates.AWFUL]: {},
+    [EmoStates.REPELLED]: {}
   }
 });

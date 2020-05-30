@@ -2,13 +2,13 @@
  * Basic
  */
 
-export const BasicActions = {
-  ANGER: "anger",
-  FEAR: "fear",
-  JOY: "joy",
-  DISGUST: "disgust",
-  SAD: "sad",
-  SURPRISE: "surprise",
+export const Basic = {
+  ANGER: "ANGER",
+  FEAR: "FEAR",
+  JOY: "JOY",
+  DISGUST: "DISGUST",
+  SAD: "SAD",
+  SURPRISE: "SURPRISE",
 };
 
 /**
@@ -16,48 +16,48 @@ export const BasicActions = {
  */
 
 export const Anger = {
-  LET_DOWN: "let_down",
-  HUMILIATED: "humiliated",
-  BITTER: "bitter",
-  MAD: "mad",
-  AGGRESSIVE: "aggressive",
-  FRUSTRATED: "frustrated",
-  DISTANT: "distant",
-  CRITICAL: "critical",
+  LET_DOWN: "LET_DOWN",
+  HUMILIATED: "HUMILIATED",
+  BITTER: "BITTER",
+  MAD: "MAD",
+  AGGRESSIVE: "AGGRESSIVE",
+  FRUSTRATED: "FRUSTRATED",
+  DISTANT: "DISTANT",
+  CRITICAL: "CRITICAL",
 };
 
 export const Mad = {
-  FURIOUS: "furious",
-  JEALOUS: "furious",
+  FURIOUS: "FURIOUS",
+  JEALOUS: "FURIOUS",
 };
 export const Aggressive = {
-  PROVOKED: "provoked",
-  HOSTILE: "hostile",
+  PROVOKED: "PROVOKED",
+  HOSTILE: "HOSTILE",
 };
 
 export const Frustrated = {
-  INFURIATED: "infuriated",
-  ANNOYED: "annoyed",
+  INFURIATED: "INFURIATED",
+  ANNOYED: "ANNOYED",
 };
 
 export const Distant = {
-  WITHDRAWN: "withdrawn",
-  NUMB: "numb",
+  WITHDRAWN: "WITHDRAWN",
+  NUMB: "NUMB",
 };
 
 export const Critical = {
-  SKEPTICAL: "skeptical",
-  DISMISSIVE: "dismissive",
+  SKEPTICAL: "SKEPTICAL",
+  DISMISSIVE: "DISMISSIVE",
 };
 
 export const Humiliated = {
-  DISRESPECTED: "disrespected",
-  RIDICULED: "ridiculed",
+  DISRESPECTED: "DISRESPECTED",
+  RIDICULED: "RIDICULED",
 };
 
 export const Bitter = {
-  INDIGNANT: "indignant",
-  VIOLATED: "violated",
+  INDIGNANT: "INDIGNANT",
+  VIOLATED: "VIOLATED",
 };
 
 /**
@@ -65,30 +65,83 @@ export const Bitter = {
  */
 
 export const Disgust = {
-  DISAPPROVING: "disapproving",
-  DISAPPOINTED: "disappointed",
-  AWFUL: "awful",
-  REPELLED: "repelled",
+  DISAPPROVING: "DISAPPROVING",
+  DISAPPOINTED: "DISAPPOINTED",
+  AWFUL: "AWFUL",
+  REPELLED: "REPELLED",
 };
 
 export const Disapproving = {
-  JUDGEMENTAL: "judgemental",
-  EMBARASSED: "embarassed",
+  JUDGEMENTAL: "JUDGEMENTAL",
+  EMBARASSED: "EMBARASSED",
 };
 
 export const Disappointed = {
-  APPALLED: "appalled",
-  REVOLTED: "revolted",
+  APPALLED: "APPALLED",
+  REVOLTED: "REVOLTED",
 };
 
 export const Awful = {
-  NAUSEATED: "nauseated",
-  DETESTABLE: "detestable",
+  NAUSEATED: "NAUSEATED",
+  DETESTABLE: "DETESTABLE",
 };
 
 export const Repelled = {
-  HORRIFIED: "horrified",
-  HESITANT: "hesitant",
+  HORRIFIED: "HORRIFIED",
+  HESITANT: "HESITANT",
+};
+
+/**
+ * Fear
+ */
+
+export const Fear = {
+  SCARED: "SCARED",
+  ANXIOUS: "ANXIOUS",
+  INSECURE: "INSECURE",
+  WEAK: "WEAK",
+  REJECTED: "REJECTED",
+  THREATENED: "THREATENED",
+};
+
+export const Scared = {
+  HELPLESS: "HELPLESS",
+  FRIGHTENED: "FRIGHTENED",
+};
+
+export const Anxious = {
+  OVERWHELMED: "OVERWHELMED",
+  WORRIED: "WORRIED",
+};
+
+export const Insecure = {
+  INADEQUATE: "INADEQUATE",
+  INFERIOR: "INFERIOR",
+};
+
+export const Weak = {
+  WORTHLESS: "WORTHLESS",
+  INSIGNIFICANT: "INSIGNIFICANT",
+};
+
+export const Rejected = {
+  EXCLUDED: "EXCLUDED",
+  PERSECUTED: "PERSECUTED",
+};
+
+export const Threatened = {
+  NERVOUS: "NERVOUS",
+  EXPOSED: "EXPOSED",
+};
+
+const FearActions = {
+  ...Fear,
+  ...Scared,
+  ...Anxious,
+  ...Insecure,
+  ...Weak,
+  ...Rejected,
+  ...Threatened,
 };
 
 /**
@@ -114,61 +167,16 @@ const DisgustActions = {
   ...Repelled,
 };
 
-/**
- * Fear
- */
-
-const Fear = {
-  SCARED: "scared",
-  ANXIOUS: "anxious",
-  INSECURE: "insecure",
-  WEAK: "weak",
-  REJECTED: "rejected",
-  THREATENED: "threatened",
-};
-
-const Scared = {
-  HELPLESS: "helpless",
-FRIGHTENED: "frightened"
-}
-
-const Anxious = {
-OVERWHELMED: "OVERWHELMED",
-WORRIED: "WORRIED",
-}
-
-const Insecure = {
-INADEQUATE: "INADEQUATE",
-INFERIOR: "INFERIOR",
-
-}
-
-const Weak = {
-WORTHLESS: "WORTHLESS",
-INSIGNIFICANT: "INSIGNIFICANT",
-
-}
-
-const Rejected = {
-EXCLUDED: "EXCLUDED",
-PERSECUTED: "PERSECUTED"
-}
-
-const Threatened = {
-NERVOUS: "NERVOUS",
-EXPOSED: "EXPOSED"
-}
-
-
 export const EmoActions = {
   START: "selecting",
-  ...BasicActions,
+  ...Basic,
   ...AngerActions,
   ...DisgustActions,
-  ...Fear
+  ...FearActions,
 };
 
 export const EmoStates = {
   ...EmoActions,
-  SELECTING: "selecting",
+  INIT: "INIT",
+  SELECTING: "SELECTING",
 };

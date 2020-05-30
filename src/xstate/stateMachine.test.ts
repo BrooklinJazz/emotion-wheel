@@ -1,7 +1,7 @@
 import {
   EmoActions,
   EmoStates,
-  BasicActions,
+  Basic,
   Anger,
   Humiliated,
   Bitter,
@@ -33,9 +33,9 @@ describe("stateMachine _ transitions", () => {
 
   it("selecting _ Basic Actions", (done) => {
     const fixture = new Fixture(done, EmoStates.SELECTING);
-    const Basic = Object.values(BasicActions);
+    const BasicActions = Object.values(Basic);
 
-    fixture.expectCanCallActions(Basic).exec();
+    fixture.expectCanCallActions(BasicActions).exec();
   });
 
   // I'm sorry Kealy - I'm lazy...
