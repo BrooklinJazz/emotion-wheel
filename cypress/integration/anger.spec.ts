@@ -39,26 +39,26 @@ describe("Emotion Behavior", () => {
 
   it("full depth _ ANGER -> LET_DOWN -> BETRAYED", (done) => {
     const fixture = new CypressFixture(done, cy)
-    // visit
-    const AngerActions = Object.values(Anger)
-    const Basic = {
+    // TODO expand Data Object 
+    const Emotions = {
       ANGER: {
         LET_DOWN: {
           BETRAYED: ""
         }
       }
     }
-    const BasicActions = Object.keys(Basic)
 
-    BasicActions.forEach((basic) => {
-      const levelTwo = Object.keys(Basic[basic])
+    const FirstLevel = Object.keys(Emotions)
+
+    FirstLevel.forEach((one) => {
+      const levelTwo = Object.keys(Emotions[one])
       levelTwo.forEach((two) => {
-        const levelThree = Object.keys(Basic[basic][two])
+        const levelThree = Object.keys(Emotions[one][two])
         levelThree.forEach((three) => {
-          console.log(basic, two, three)
+          console.log(one, two, three)
           fixture.visit()
           .click(Ids.StartButton)
-          .click(basic)
+          .click(one)
           .click(two)
           .click(three)
           .exec()
