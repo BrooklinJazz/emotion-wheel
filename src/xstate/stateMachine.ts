@@ -5,7 +5,7 @@ export const emotionStateMachine = Machine({
   id: "emotionMachine",
   initial: EmoStates.INIT,
   states: {
-    init: { on: { [EmoActions.START]: EmoStates.SELECTING } },
+    [EmoStates.INIT]: { on: { [EmoActions.START]: EmoStates.SELECTING } },
     [EmoStates.SELECTING]: {
       on: {
         [EmoActions.ANGER]: EmoStates.ANGER,
@@ -408,5 +408,6 @@ export const emotionStateMachine = Machine({
     [EmoStates.AWE]: {},
     [EmoStates.EAGER]: {},
     [EmoStates.ENERGETIC]: {},
+    [EmoStates.FINISH]: {}
   },
 });

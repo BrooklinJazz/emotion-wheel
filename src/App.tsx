@@ -10,61 +10,57 @@ import { emotionStateMachine } from "./xstate/stateMachine";
 import { useMachine } from "@xstate/react";
 import { Container } from "./Background";
 import { send } from "xstate";
-
-const baseEmotions = ["Disgust", "Fear", "Joy", "Surprise", "Anger", "Sadness"];
-const angerEmotions = [
-  "LetDown",
-  "Humiliated",
-  "Bitter",
-  "Mad",
-  "Aggressive",
-  "Frustrated",
-  "Distant",
-  "Critical",
-];
+import { Basic, Anger, LetDown, EmoActions, EmoObjects } from "./xstate/actions";
 
 const Switch = () => {
   const [current, send] = useMachine(emotionStateMachine);
   console.log("Current.value", current.value);
-
+  // throw "You done fucked up"
+  const emotions = getEmotions(current.value)
   switch (current.value) {
-    case "init":
+    case "INIT":
       return <Start send={send} />;
-    case "selecting":
-      return <Selecting send={send} />;
-    case "anger":
-    case "disgust":
-    case "fear":
-    case "joy":
-    case "surprise":
-    case "sadness":
+      default:
+        return <EmoComponent emotions={emotions} send={send}/>
+    // case "SELECTING":
+    //   return <EmoComponent emotions={Basic} send={send} />
+    // case EmoActions.ANGER:
+    //   return <EmoComponent emotions={Anger} send={send} />
+    // case EmoActions.LET_DOWN:
+    //   return <EmoComponent emotions={LetDown} send={send} />
+    // case "disgust":
+    // case "fear":
+    // case "joy":
+    // case "surprise":
+    // case "sadness":
   }
 };
 
+const getEmotions = (state) => {
+  return EmoObjects[state]
+}
+
 const Start = ({ send }) => {
   return (
-    <EmoButton data-test-id="startBtn" onPress={() => send("START")}>
+    <EmoButton data-test-id="StartBtn" onPress={() => send(EmoActions.START)}>
       Start
     </EmoButton>
   );
 };
 
-const Selecting = ({ send }) => {
+const EmoComponent = ({ emotions, send }) => {
   return (
     <>
-      {baseEmotions.map((emotion) => {
+      {Object.values(emotions).map((emotion) => {
         return (
-          <EmoButton
-            data-test-id={`${emotion}Btn`}
-            onPress={() => send(emotion.toUpperCase())}
-          >
+          <EmoButton data-test-id={emotion} onPress={() => send(emotion)}>
             {emotion}
           </EmoButton>
         );
       })}
     </>
-  );
-};
+  )
+}
 
 const EmoButton = ({ children, ...props }) => {
   return (
@@ -75,10 +71,9 @@ const EmoButton = ({ children, ...props }) => {
 };
 
 export default function App() {
-  return null;
-  // return (
-  //   <Container>
-  //     <Switch />
-  //   </Container>
-  // );
+  return (
+    <Container>
+      <Switch />
+    </Container>
+  );
 }

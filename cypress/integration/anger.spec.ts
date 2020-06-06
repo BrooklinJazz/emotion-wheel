@@ -57,7 +57,7 @@ describe("Emotion Behavior", () => {
         levelThree.forEach((three) => {
           console.log(one, two, three)
           fixture.visit()
-          .click(Ids.StartButton)
+          .click(Ids.StartBtn)
           .click(one)
           .click(two)
           .click(three)

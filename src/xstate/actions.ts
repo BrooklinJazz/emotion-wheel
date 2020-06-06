@@ -307,6 +307,9 @@ export const Optimistic = {
   INSPIRED: "INSPIRED",
 };
 
+export const Finish = {}
+
+
 /**
  * EmoActions
  */
@@ -381,7 +384,7 @@ const HappyActions = {
 }
 
 export const EmoActions = {
-  START: "selecting",
+  START: "SELECTING",
   ...Basic,
   ...AngerActions,
   ...DisgustActions,
@@ -396,4 +399,58 @@ export const EmoStates = {
   ...EmoActions,
   INIT: "INIT",
   SELECTING: "SELECTING",
+};
+
+
+
+export const EmoObjects = {
+  [EmoStates.SELECTING]: Basic,
+  [EmoStates.ANGER]: Anger,
+  [EmoStates.LET_DOWN]: LetDown,
+  [EmoStates.MAD]: Mad,
+  [EmoStates.AGGRESSIVE]: Aggressive,
+  [EmoStates.FRUSTRATED]: Frustrated,
+  [EmoStates.DISTANT]: Distant,
+  [EmoStates.CRITICAL]: Critical,
+  [EmoStates.HUMILIATED]: Humiliated,
+  [EmoStates.BITTER]: Bitter,
+  [EmoStates.DISGUST]: Disgust,
+  [EmoStates.DISAPPROVING]: Disapproving,
+  [EmoStates.DISAPPOINTED]: Disappointed,
+  [EmoStates.AWFUL]: Awful,
+  [EmoStates.REPELLED]: Repelled,
+  [EmoStates.FEAR]: Fear,
+  [EmoStates.SCARED]: Scared,
+  [EmoStates.ANXIOUS]: Anxious,
+  [EmoStates.INSECURE]: Insecure,
+  [EmoStates.WEAK]: Weak,
+  [EmoStates.REJECTED]: Rejected,
+  [EmoStates.THREATENED]: Threatened,
+  [EmoStates.SURPRISE]: Surprise,
+  [EmoStates.STARTLED]: Startled,
+  [EmoStates.CONFUSED]: Confused,
+  [EmoStates.AMAZED]: Amazed,
+  [EmoStates.EXCITED]: Excited,
+  [EmoStates.SAD]: Sad,
+  [EmoStates.LONELY]: Lonely,
+  [EmoStates.VULNERABLE]: Vulnerable,
+  [EmoStates.DESPAIR]: Despair,
+  [EmoStates.GUILTY]: Guilty,
+  [EmoStates.DEPRESSED]: Depressed,
+  [EmoStates.HURT]: Hurt,
+  [EmoStates.BAD]: Bad,
+  [EmoStates.TIRED]: Tired,
+  [EmoStates.STRESSED]: Stressed,
+  [EmoStates.BUSY]: Busy,
+  [EmoStates.BORED]: Bored,
+  [EmoStates.HAPPY]: Happy,
+  [EmoStates.PLAYFUL]: Playful,
+  [EmoStates.CONTENT]: Content,
+  [EmoStates.INTERESTED]: Interested,
+  [EmoStates.PROUD]: Proud,
+  [EmoStates.ACCEPTED]: Accepted,
+  [EmoStates.POWERFUL]: Powerful,
+  [EmoStates.PEACEFUL]: Peaceful,
+  [EmoStates.TRUSTING]: Trusting,
+  [EmoStates.OPTIMISTIC]: Optimistic,
 };

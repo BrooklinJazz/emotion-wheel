@@ -1,5 +1,5 @@
 export const Ids = {
-  StartButton: "StartButton"
+  StartBtn: "StartBtn"
 }
 
 /**
