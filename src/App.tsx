@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import { emotionStateMachine, initialActions } from "./xstate/stateMachine";
+import { emotionStateMachine } from "./xstate/stateMachine";
 import { useMachine } from "@xstate/react";
 import { Container } from "./Background";
 import { send } from "xstate";
@@ -75,9 +75,10 @@ const EmoButton = ({ children, ...props }) => {
 };
 
 export default function App() {
-  return (
-    <Container>
-      <Switch />
-    </Container>
-  );
+  return null;
+  // return (
+  //   <Container>
+  //     <Switch />
+  //   </Container>
+  // );
 }

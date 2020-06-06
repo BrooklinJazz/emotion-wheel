@@ -30,7 +30,7 @@
     "@types/react-native": "~0.60.23",
     "@types/styled-components": "^4.4.2",
     "babel-preset-expo": "~8.0.0",
-    "cypress": "4.5.0",
+    "cypress": "^4.7.0",
     "jest": "^26.0.1",
     "typescript": "~3.6.3"
   },
