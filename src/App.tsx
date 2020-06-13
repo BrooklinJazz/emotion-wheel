@@ -11,6 +11,7 @@ import { useMachine } from "@xstate/react";
 import { Container } from "./Background";
 import { send } from "xstate";
 import { Basic, Anger, LetDown, EmoActions, EmoObjects } from "./xstate/actions";
+import Donut from "./Chart";
 
 const Switch = () => {
   const [current, send] = useMachine(emotionStateMachine);
@@ -73,7 +74,7 @@ const EmoButton = ({ children, ...props }) => {
 export default function App() {
   return (
     <Container>
-      <Switch />
+      <Donut />
     </Container>
   );
 }
