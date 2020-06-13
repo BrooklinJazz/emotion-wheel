@@ -14,6 +14,7 @@
   "dependencies": {
     "@types/jest": "^25.2.3",
     "@xstate/react": "^0.8.1",
+    "d3": "^5.16.0",
     "expo": "^36.0.2",
     "react": "~16.9.0",
     "react-dom": "^16.12.0",
