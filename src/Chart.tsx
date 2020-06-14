@@ -57,7 +57,7 @@ const useChart = () => {
   return chart;
 };
 
-const Donut = () => {
+export const EmotionChart = () => {
   const { chartOptions, series } = useChart();
 
   return (
@@ -66,5 +66,3 @@ const Donut = () => {
     </View>
   );
 };
-
-export default Donut;
