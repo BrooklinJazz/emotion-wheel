@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { useMachine } from "@xstate/react";
 import { emotionStateMachine } from "./xstate/stateMachine";
-import { EmoObjects } from "./xstate/actions";
-import { Button, ThemeProvider } from 'react-native-elements'
+import { EmoObjects, EmoStates } from "./xstate/actions";
+import { Button, ThemeProvider } from "react-native-elements";
 import styled from "styled-components/native";
+
 const getEmotions = (state) => {
-  return Object.values(EmoObjects[state]);
+  return EmoObjects[state] ? Object.values(EmoObjects[state]) : [];
 };
 
 const Container = styled.View`
@@ -14,21 +15,33 @@ const Container = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-`
+`;
 
-const Emotion = ({...props}) => <Button {...props} buttonStyle={{height: 60}} containerStyle={{
- width: "40%",
- marginBottom: 40,
-}}/>
-
+const Emotion = ({ containerStyle = {}, buttonStyle = {}, ...props }) => (
+  <Button
+    {...props}
+    buttonStyle={{ height: 60, ...buttonStyle }}
+    containerStyle={{
+      width: "40%",
+      ...containerStyle
+    }}
+  />
+);
 
 export const EmotionChart = () => {
-  const [current, send] = useMachine(emotionStateMachine);
-  const emotions = getEmotions(current.value);
+  const [{value}, send] = useMachine(emotionStateMachine);
+  console
+  if(!value) return null
+  if (value === EmoStates.INIT) {
+    return <Button data-test-id="StartBtn" onPress={() => send(EmoStates.START)} title={"START"}/>
+  }
+  const emotions = getEmotions(value);
 
   return (
     <Container>
-      {emotions.map(each => <Emotion onPress={() => send(each)} raised title={each}/>)}
+      {emotions.map((each) => (
+        <Emotion onPress={() => send(each)} data-test-id={each} containerStyle={{marginBottom: 40}} raised title={each} />
+      ))}
     </Container>
   );
 };
