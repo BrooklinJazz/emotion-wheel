@@ -1,9 +1,9 @@
 import { emotionStateMachine } from "./stateMachine";
 import { interpret, Interpreter, AnyEventObject } from "xstate";
-
+import { EmoStates } from "./actions";
 class BaseFixture {
   private fnArray: Array<Function>;
-  constructor(public done: jest.DoneCallback,) {
+  constructor(public done: jest.DoneCallback) {
     this.fnArray = [];
   }
 
@@ -26,10 +26,10 @@ export class Fixture extends BaseFixture {
   private machine: Interpreter<any, any, AnyEventObject, any>;
   constructor(
     done: jest.DoneCallback,
-    init: string = "init",
+    init: string = EmoStates.INIT,
     machine = emotionStateMachine
   ) {
-    super(done)
+    super(done);
     this.machine = interpret(machine).start(init);
   }
 
@@ -59,7 +59,7 @@ export class Fixture extends BaseFixture {
   private testAndRevertAction(action) {
     const prevState = this.state;
     this.sendImpl(action);
-    expect(action.length).toBeGreaterThan(1)
+    expect(action.length).toBeGreaterThan(1);
     expect(this.state).toBe(action);
     this.resetMachine(prevState);
   }

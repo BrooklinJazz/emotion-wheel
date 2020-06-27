@@ -3,7 +3,7 @@ import { EmoActions, EmoStates } from "./actions";
 
 export const emotionStateMachine = Machine({
   id: "emotionMachine",
-  initial: EmoStates.SELECTING,
+  initial: EmoStates.INIT,
   states: {
     [EmoStates.INIT]: { on: { [EmoActions.START]: EmoStates.SELECTING } },
     [EmoStates.SELECTING]: {
