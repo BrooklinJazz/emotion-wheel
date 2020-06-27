@@ -1,68 +1,34 @@
 import React, { useState } from "react";
-import { View } from "react-native";
-import Chart from "react-apexcharts";
+import { View, Text } from "react-native";
 import { useMachine } from "@xstate/react";
 import { emotionStateMachine } from "./xstate/stateMachine";
 import { EmoObjects } from "./xstate/actions";
-
+import { Button, ThemeProvider } from 'react-native-elements'
+import styled from "styled-components/native";
 const getEmotions = (state) => {
   return Object.values(EmoObjects[state]);
 };
 
-const useChart = () => {
-  const [current, send] = useMachine(emotionStateMachine);
-  const emotions = getEmotions(current.value);
-  const series = emotions.map((each) => 1);
-  const chart = {
-    chartOptions: {
-      chart: {
-        events: {
-          dataPointSelection: (event, chartContext, config) => {
-            send(config.w.config.labels[config.dataPointIndex]);
-          },
-        },
-      },
-      dataLabels: {
-        enabled: true,
-        textAnchor: "start",
-        style: {
-          colors: ["#fff"],
-        },
-        formatter: function (val, opt) {
-          return opt.w.globals.labels[opt.seriesIndex];
-        },
-      },
-      plotOptions: {
-        pie: {
-          donut: {
-            labels: {
-              show: false,
-              name: {
-                show: true,
-              },
-            },
-          },
-        },
-      },
-      labels: emotions,
-      legend: {
-        show: false,
-      },
-      tooltip: {
-        enabled: false,
-      },
-    },
-    series,
-  };
-  return chart;
-};
+const Container = styled.View`
+  width: 80%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
+
+const Emotion = ({...props}) => <Button {...props} buttonStyle={{height: 60}} containerStyle={{
+ width: "40%",
+ marginBottom: 40,
+}}/>
+
 
 export const EmotionChart = () => {
-  const { chartOptions, series } = useChart();
+  const [current, send] = useMachine(emotionStateMachine);
+  const emotions = getEmotions(current.value);
 
   return (
-    <View class="pie">
-      <Chart options={chartOptions} series={series} type="pie" width="500" />
-    </View>
+    <Container>
+      {emotions.map(each => <Emotion raised title={each}/>)}
+    </Container>
   );
 };
