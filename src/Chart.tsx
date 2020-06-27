@@ -28,7 +28,7 @@ export const EmotionChart = () => {
 
   return (
     <Container>
-      {emotions.map(each => <Emotion raised title={each}/>)}
+      {emotions.map(each => <Emotion onPress={() => send(each)} raised title={each}/>)}
     </Container>
   );
 };
