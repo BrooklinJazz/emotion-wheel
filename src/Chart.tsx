@@ -30,7 +30,6 @@ const Emotion = ({ containerStyle = {}, buttonStyle = {}, ...props }) => (
 
 export const EmotionChart = () => {
   const [{value}, send] = useMachine(emotionStateMachine);
-  console
   if(!value) return null
   if (value === EmoStates.INIT) {
     return <Button data-test-id="StartBtn" onPress={() => send(EmoStates.START)} title={"START"}/>
