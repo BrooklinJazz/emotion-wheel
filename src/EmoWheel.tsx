@@ -6,7 +6,8 @@ import { EmoObjects, EmoStates } from "./xstate/actions";
 import { emotionStateMachine } from "./xstate/stateMachine";
 import { Finished } from "./Finished";
 import { EmotionButton } from "./EmotionButton";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
+import { Colors } from "./Colors";
 
 const getEmotions = (state) => {
   return EmoObjects[state] ? Object.values(EmoObjects[state]) : [];
@@ -42,6 +43,8 @@ export const EmoWheel = () => {
   }
 
   return (
+    <>
+    <Text style={{fontSize: 30, color: Colors.Text, marginBottom: 30}}>How do you feel?</Text>
       <ButtonContainer>
         {emotions.map((each) => (
           <EmotionButton
@@ -54,5 +57,6 @@ export const EmoWheel = () => {
           />
         ))}
       </ButtonContainer>
+      </>
   );
 };
