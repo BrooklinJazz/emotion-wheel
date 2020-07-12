@@ -4,6 +4,8 @@ import { Button } from "react-native-elements";
 import styled from "styled-components/native";
 import { EmoObjects, EmoStates } from "./xstate/actions";
 import { emotionStateMachine } from "./xstate/stateMachine";
+import { Finished } from "./Finished";
+import { EmotionButton } from "./EmotionButton";
 
 const getEmotions = (state) => {
   return EmoObjects[state] ? Object.values(EmoObjects[state]) : [];
@@ -15,29 +17,6 @@ const Container = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-`;
-
-const Emotion = ({ containerStyle = {}, buttonStyle = {}, ...props }) => (
-  <Button
-    {...props}
-    buttonStyle={{ height: 60, ...buttonStyle }}
-    containerStyle={{
-      width: "45%",
-      ...containerStyle,
-    }}
-  />
-);
-
-const Finished = styled.Text.attrs(({ value }) => ({
-  children: `
-  You're feeling ${value.toLowerCase()}.
-
-  Take a moment to acknowledge that feeling.
-  No feelings are bad - they simply "are"
-  `,
-}))`
-  text-align: center;
-  font-size: 20;
 `;
 
 export const EmoWheel = () => {
@@ -64,7 +43,7 @@ export const EmoWheel = () => {
   return (
     <Container>
       {emotions.map((each) => (
-        <Emotion
+        <EmotionButton
           key={each}
           onPress={() => send(each)}
           data-test-id={each}
