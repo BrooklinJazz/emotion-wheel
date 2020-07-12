@@ -8,5 +8,5 @@ export const Finished = styled.Text.attrs(({ value }) => ({
   `,
 }))`
   text-align: center;
-  font-size: 20;
+  font-size: 20px;
 `;

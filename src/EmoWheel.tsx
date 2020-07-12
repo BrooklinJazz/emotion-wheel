@@ -6,12 +6,13 @@ import { EmoObjects, EmoStates } from "./xstate/actions";
 import { emotionStateMachine } from "./xstate/stateMachine";
 import { Finished } from "./Finished";
 import { EmotionButton } from "./EmotionButton";
+import { View, Image } from "react-native";
 
 const getEmotions = (state) => {
   return EmoObjects[state] ? Object.values(EmoObjects[state]) : [];
 };
 
-const Container = styled.View`
+const ButtonContainer = styled.View`
   width: 90%;
   max-width: 700px;
   flex-direction: row;
@@ -24,7 +25,7 @@ export const EmoWheel = () => {
   if (!value) return null;
   if (value === EmoStates.INIT) {
     return (
-      <Button
+      <EmotionButton
         data-test-id="StartBtn"
         onPress={() => send(EmoStates.START)}
         title={"START"}
@@ -41,17 +42,17 @@ export const EmoWheel = () => {
   }
 
   return (
-    <Container>
-      {emotions.map((each) => (
-        <EmotionButton
-          key={each}
-          onPress={() => send(each)}
-          data-test-id={each}
-          containerStyle={{ marginBottom: 40 }}
-          raised
-          title={each.split("_").join(" ")}
-        />
-      ))}
-    </Container>
+      <ButtonContainer>
+        {emotions.map((each) => (
+          <EmotionButton
+            key={each}
+            onPress={() => send(each)}
+            data-test-id={each}
+            containerStyle={{ marginBottom: 40, width: "45%" }}
+            raised
+            title={each.split("_").join(" ")}
+          />
+        ))}
+      </ButtonContainer>
   );
 };
