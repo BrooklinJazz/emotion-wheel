@@ -17,7 +17,8 @@ describe("Emotion Behavior", () => {
             .click(Ids.StartBtn)
             .click(one)
             .click(two)
-            .click(three);
+            .click(three)
+            .isVisible(Ids.Finished)
         });
       });
     });

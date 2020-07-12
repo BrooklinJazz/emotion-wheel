@@ -23,23 +23,43 @@ const Emotion = ({ containerStyle = {}, buttonStyle = {}, ...props }) => (
     buttonStyle={{ height: 60, ...buttonStyle }}
     containerStyle={{
       width: "40%",
-      ...containerStyle
+      ...containerStyle,
     }}
   />
 );
 
-export const EmotionChart = () => {
-  const [{value}, send] = useMachine(emotionStateMachine);
-  if(!value) return null
+export const EmoWheel = () => {
+  const [{ value, context }, send] = useMachine(emotionStateMachine);
+  console.warn(value)
+  if (!value) return null;
   if (value === EmoStates.INIT) {
-    return <Button data-test-id="StartBtn" onPress={() => send(EmoStates.START)} title={"START"}/>
+    return (
+      <Button
+        data-test-id="StartBtn"
+        onPress={() => send(EmoStates.START)}
+        title={"START"}
+      />
+    );
+  }
+  if (value === EmoStates.FINISHED) {
+    return (
+      <Text>
+        FIISHED{value} {JSON.stringify(context)}
+      </Text>
+    );
   }
   const emotions = getEmotions(value);
-
+  
   return (
     <Container>
       {emotions.map((each) => (
-        <Emotion onPress={() => send(each)} data-test-id={each} containerStyle={{marginBottom: 40}} raised title={each} />
+        <Emotion
+          onPress={() => send(each)}
+          data-test-id={each}
+          containerStyle={{ marginBottom: 40 }}
+          raised
+          title={each}
+        />
       ))}
     </Container>
   );

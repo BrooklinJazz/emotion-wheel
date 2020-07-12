@@ -1,11 +1,11 @@
 import React from "react";
 import { Container } from "./Background";
-import {EmotionChart} from "./Chart";
+import {EmoWheel} from "./EmoWheel";
 
 export default function App() {
   return (
     <Container>
-      <EmotionChart />
+      <EmoWheel />
     </Container>
   );
 }

@@ -51,18 +51,15 @@ export class Fixture extends BaseFixture {
     });
   }
 
-  private resetMachine(state) {
+  public resetMachine(state) {
+    return this.add(() => this.resetMachineImpl(state))
+  }
+
+  private resetMachineImpl(state) {
     this.machine.stop();
     this.machine.start(state);
   }
 
-  private testAndRevertAction(action) {
-    const prevState = this.state;
-    this.sendImpl(action);
-    expect(action.length).toBeGreaterThan(1);
-    expect(this.state).toBe(action);
-    this.resetMachine(prevState);
-  }
 
   public expectCanCallActions(actions: string[]) {
     return this.assert(() => {
