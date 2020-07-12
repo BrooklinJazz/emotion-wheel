@@ -99,6 +99,7 @@ export const emotionStateMachine = Machine({
     [EmoStates.MAD]: {
       on: {
         [EmoActions.FURIOUS]: EmoStates.FURIOUS,
+        [EmoActions.JEALOUS]: EmoStates.JEALOUS,
       },
     },
     [EmoStates.AGGRESSIVE]: {
@@ -130,6 +131,7 @@ export const emotionStateMachine = Machine({
     [EmoStates.INDIGNANT]: {},
     [EmoStates.VIOLATED]: {},
     [EmoStates.FURIOUS]: {},
+    [EmoStates.JEALOUS]: {},
     [EmoStates.PROVOKED]: {},
     [EmoStates.HOSTILE]: {},
     [EmoStates.INFURIATED]: {},

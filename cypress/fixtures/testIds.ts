@@ -1,5 +1,6 @@
 export const Ids = {
-  StartBtn: "StartBtn"
+  StartBtn: "StartBtn",
+  Finished: "Finished"
 }
 
 /**
@@ -36,7 +37,7 @@ export const AngerButtons = Object.values(Anger)
 
 export const Mad = {
   FURIOUS: "furious",
-  JEALOUS: "furious"
+  JEALOUS: "jealous"
 };
 
 export const Aggressive = {

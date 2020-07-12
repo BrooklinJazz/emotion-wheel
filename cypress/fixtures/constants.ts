@@ -30,7 +30,7 @@ export const Anger = {
 
 export const Mad = {
   FURIOUS: "furious",
-  JEALOUS: "furious"
+  JEALOUS: "jealous"
 };
 export const Aggressive = {
   PROVOKED: "provoked",

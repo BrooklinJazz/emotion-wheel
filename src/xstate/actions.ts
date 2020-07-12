@@ -29,12 +29,12 @@ export const Anger = {
 
 export const LetDown = {
   BETRAYED: "BETRAYED",
-  RESENTFUL: "RESENTFUL"
-}
+  RESENTFUL: "RESENTFUL",
+};
 
 export const Mad = {
   FURIOUS: "FURIOUS",
-  JEALOUS: "FURIOUS",
+  JEALOUS: "JEALOUS",
 };
 export const Aggressive = {
   PROVOKED: "PROVOKED",
@@ -307,8 +307,7 @@ export const Optimistic = {
   INSPIRED: "INSPIRED",
 };
 
-export const Finish = {}
-
+export const Finish = {};
 
 /**
  * EmoActions
@@ -380,8 +379,8 @@ const HappyActions = {
   ...Powerful,
   ...Peaceful,
   ...Trusting,
-  ...Optimistic
-}
+  ...Optimistic,
+};
 
 export const EmoActions = {
   START: "SELECTING",
@@ -401,7 +400,63 @@ export const EmoStates = {
   SELECTING: "SELECTING",
 };
 
-
+export const EmoTree = {
+  [EmoStates.ANGER]: {
+    [EmoStates.LET_DOWN]: LetDown,
+    [EmoStates.HUMILIATED]: Humiliated,
+    [EmoStates.BITTER]: Bitter,
+    [EmoStates.MAD]: Mad,
+    [EmoStates.AGGRESSIVE]: Aggressive,
+    [EmoStates.FRUSTRATED]: Frustrated,
+    [EmoStates.DISTANT]: Distant,
+    [EmoStates.CRITICAL]: Critical,
+  },
+  [EmoStates.SAD]: {
+    [EmoStates.LONELY]: Lonely,
+    [EmoStates.VULNERABLE]: Vulnerable,
+    [EmoStates.DESPAIR]: Despair,
+    [EmoStates.GUILTY]: Guilty,
+    [EmoStates.DEPRESSED]: Depressed,
+    [EmoStates.HURT]: Hurt,
+  },
+  [EmoStates.BAD]: {
+    [EmoStates.TIRED]: Tired,
+    [EmoStates.STRESSED]: Stressed,
+    [EmoStates.BUSY]: Busy,
+    [EmoStates.BORED]: Bored,
+  },
+  [EmoStates.DISGUST]: {
+    [EmoStates.DISAPPROVING]: Disapproving,
+    [EmoStates.DISAPPOINTED]: Disappointed,
+    [EmoStates.AWFUL]: Awful,
+    [EmoStates.REPELLED]: Repelled,
+  },
+  [EmoStates.FEAR]: {
+    [EmoStates.SCARED]: Scared,
+    [EmoStates.ANXIOUS]: Anxious,
+    [EmoStates.INSECURE]: Insecure,
+    [EmoStates.WEAK]: Weak,
+    [EmoStates.REJECTED]: Rejected,
+    [EmoStates.THREATENED]: Threatened,
+  },
+  [EmoStates.SURPRISE]: {
+    [EmoStates.STARTLED]: Startled,
+    [EmoStates.CONFUSED]: Confused,
+    [EmoStates.AMAZED]: Amazed,
+    [EmoStates.EXCITED]: Excited,
+  },
+  [EmoStates.HAPPY]: {
+    [EmoStates.PLAYFUL]: Playful,
+    [EmoStates.CONTENT]: Content,
+    [EmoStates.INTERESTED]: Interested,
+    [EmoStates.PROUD]: Proud,
+    [EmoStates.ACCEPTED]: Accepted,
+    [EmoStates.POWERFUL]: Powerful,
+    [EmoStates.PEACEFUL]: Peaceful,
+    [EmoStates.TRUSTING]: Trusting,
+    [EmoStates.OPTIMISTIC]: Optimistic,
+  },
+};
 
 export const EmoObjects = {
   [EmoStates.SELECTING]: Basic,
