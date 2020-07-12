@@ -5,14 +5,7 @@ const FinalStates = (keys: string[]) => {
   return keys.reduce(
     (total, each) => ({
       ...total,
-      [each]: {
-        on: {
-          [EmoActions.FINISH]: {
-            target: EmoStates.FINISHED,
-            actions: "finish",
-          },
-        },
-      },
+      [each]: {},
     }),
     {}
   );
@@ -357,7 +350,7 @@ export const emotionStateMachine = Machine(
           [EmoActions.INSPIRED]: EmoStates.INSPIRED,
         },
       },
-      // all final states have the same {on: {EmoActions.FINISH: EmoStates.FINISHED}}
+      // all final states have the same structure
       ...FinalStates([
         EmoStates.HELPLESS,
         EmoStates.FRIGHTENED,

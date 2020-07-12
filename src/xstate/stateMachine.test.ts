@@ -25,8 +25,6 @@ describe("stateMachine _ transitions", () => {
             .expectIsState(two)
             .send(three)
             .expectIsState(three)
-            .send(EmoActions.FINISH)
-            .expectIsState(EmoStates.FINISHED)
             .exec();
         });
       });
