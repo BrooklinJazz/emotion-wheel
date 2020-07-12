@@ -3,7 +3,7 @@ import { Container } from "./Background";
 import { EmoWheel } from "./EmoWheel";
 import { View, Image, SafeAreaView, Text } from "react-native";
 import { Colors } from "./Colors";
-
+import logo from "./EmoWheelLogo.png"
 const Header = () => {
   return (
     <View
@@ -17,7 +17,7 @@ const Header = () => {
     >
       <Image
         style={{ height: 50, width: 50 }}
-        source={require("./EmoWheelLogo.png")}
+        source={logo}
       />
       <Text style={{ fontSize: 25, marginLeft: 20, color: Colors.Text }}>Emotion Wheel</Text>
     </View>
