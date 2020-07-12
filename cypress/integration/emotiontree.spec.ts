@@ -15,6 +15,7 @@ describe("Emotion Behavior", () => {
           fixture
             .visit()
             .click(Ids.StartBtn)
+            .isVisible(one)
             .click(one)
             .click(two)
             .click(three)

@@ -49,7 +49,7 @@ export const EmoWheel = () => {
           data-test-id={each}
           containerStyle={{ marginBottom: 40 }}
           raised
-          title={each}
+          title={each.split("_").join(" ")}
         />
       ))}
     </Container>
